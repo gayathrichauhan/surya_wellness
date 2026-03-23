@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suryaa Wellness – Authentic Ayurvedic Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8933A; --gold-light: #E8C07A; --deep: #1A1208;
+  --bark: #3D2B0E; --cream: #FAF6EE; --sage: #6B7C5A;
+  --sage-light: #EDF0E8; --text: #2C1F0A; --muted: #7A6A4E;
+  --white: #FFFFFF; --border: rgba(200,147,58,0.2);
+  --green: #1A7A44; --red: #B82C2C;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ─── PAGE SECTIONS (show/hide) ─── */
+.page-section{display:none}
+.page-section.active{display:block}
+
+/* ─── ANNOUNCEMENT BAR ─── */
+.ann-bar{background:var(--bark);color:var(--cream);text-align:center;
+  padding:0.55rem 1rem;font-size:0.78rem;font-weight:300;letter-spacing:0.06em;
+  position:relative;z-index:200}
+.ann-bar strong{font-weight:500;color:var(--gold-light)}
+
+/* ─── NAVBAR ─── */
+nav{position:sticky;top:0;z-index:150;background:rgba(250,246,238,0.97);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--border);
+  padding:0 4vw;display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;
+  color:var(--bark);letter-spacing:0.04em;text-decoration:none;cursor:pointer}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:0.2rem;list-style:none}
+.nav-links a,.nav-links button{font-size:0.75rem;font-weight:400;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;background:none;border:none;
+  cursor:pointer;padding:0.4rem 0.7rem;transition:color 0.2s;font-family:'Jost',sans-serif}
+.nav-links a:hover,.nav-links button:hover{color:var(--gold)}
+.nav-links .active-nav{color:var(--bark);font-weight:500}
+.nav-cta{background:var(--gold)!important;color:var(--white)!important;
+  padding:0.5rem 1.1rem!important;font-weight:500!important;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--bark)!important}
+.nav-right{display:flex;align-items:center;gap:0.8rem}
+.cart-btn{background:none;border:1px solid var(--border);padding:0.45rem 0.9rem;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:400;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--bark);
+  transition:all 0.2s;display:flex;align-items:center;gap:0.4rem}
+.cart-btn:hover{background:var(--bark);color:var(--white);border-color:var(--bark)}
+.cart-count{background:var(--gold);color:var(--white);border-radius:50%;
+  width:16px;height:16px;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:600}
+
+/* ─── QUICK BAR ─── */
+.quick-bar{background:var(--gold);padding:0.8rem 4vw;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem}
+.quick-bar-text{font-size:0.83rem;font-weight:300;color:rgba(255,255,255,0.9)}
+.quick-bar-text strong{font-weight:500;color:#fff}
+.quick-links{display:flex;gap:0.6rem;flex-wrap:wrap}
+.quick-link{display:flex;align-items:center;gap:0.4rem;padding:0.45rem 0.9rem;
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;text-decoration:none;font-size:0.75rem;font-weight:400;
+  letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s}
+.quick-link:hover{background:rgba(255,255,255,0.28)}
+.quick-link svg{width:13px;height:13px}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:86vh;display:flex;align-items:center;
+  padding:0 5vw;overflow:hidden}
+.hero-bg{position:absolute;inset:0;
+  background:linear-gradient(135deg,#FAF6EE 0%,#F0E9D6 55%,#E8DCC0 100%)}
+.hero-orb1{position:absolute;right:-80px;top:50%;transform:translateY(-50%);
+  width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,147,58,0.14) 0%,transparent 70%)}
+.hero-orb2{position:absolute;left:-100px;bottom:-80px;width:380px;height:380px;
+  border-radius:50%;background:radial-gradient(circle,rgba(107,124,90,0.12) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:2;max-width:620px}
+.eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.1rem;display:flex;align-items:center;gap:0.7rem}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5.5vw,4.6rem);font-weight:300;line-height:1.1;
+  color:var(--bark);margin-bottom:1.3rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p{font-size:0.97rem;font-weight:300;line-height:1.85;color:var(--muted);
+  max-width:460px;margin-bottom:2.2rem}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.4rem}
+.stat{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--bark)}
+.stat-label{font-size:0.72rem;color:var(--muted);font-weight:300;letter-spacing:0.08em}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#fff;padding:0.85rem 1.8rem;border:none;
+  font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;cursor:pointer;text-decoration:none;
+  transition:background 0.25s,transform 0.15s;display:inline-block}
+.btn-primary:hover{background:var(--bark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--bark);padding:0.85rem 1.8rem;
+  border:1px solid var(--bark);font-family:'Jost',sans-serif;font-size:0.78rem;
+  font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;
+  text-decoration:none;transition:all 0.25s;display:inline-block}
+.btn-outline:hover{background:var(--bark);color:#fff}
+.btn-green{background:var(--green);color:#fff;padding:0.85rem 1.8rem;border:none;
+  font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;cursor:pointer;display:inline-block;transition:background 0.2s}
+.btn-green:hover{background:#145e33}
+
+/* ─── SECTION SHARED ─── */
+section{padding:5.5rem 5vw}
+.sec-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:0.7rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.8vw,2.8rem);
+  font-weight:300;color:var(--bark);margin-bottom:0.9rem;line-height:1.2}
+.sec-sub{font-size:0.93rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:500px}
+.divider{width:44px;height:1px;background:var(--gold);margin:1.3rem 0}
+.sec-center{text-align:center}.sec-center .sec-sub{margin:0 auto}.sec-center .divider{margin:1.3rem auto}
+
+/* ─── DISEASES / SERVICES GRID ─── */
+.diseases-section{background:#fff}
+.diseases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1rem;margin-top:2.5rem}
+.disease-card{background:var(--cream);border:1px solid var(--border);padding:1.3rem 1rem;
+  text-align:center;cursor:pointer;transition:all 0.22s;text-decoration:none;color:var(--text)}
+.disease-card:hover{border-color:var(--gold);background:#fff;transform:translateY(-3px)}
+.disease-icon{font-size:1.6rem;margin-bottom:0.6rem}
+.disease-name{font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:0.2rem}
+.disease-sub{font-size:0.72rem;color:var(--muted);font-weight:300}
+
+/* ─── CHANNELS ─── */
+.channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1.5px;background:var(--border);border:1px solid var(--border);max-width:1050px;margin:2.5rem auto 0}
+.channel-card{background:#fff;padding:2.2rem 1.8rem;display:flex;flex-direction:column;
+  align-items:center;text-align:center;text-decoration:none;color:inherit;
+  transition:background 0.25s,transform 0.2s;position:relative;overflow:hidden}
+.channel-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.channel-card:hover{background:#FFFDF8;transform:translateY(-4px)}
+.channel-card:hover::after{transform:scaleX(1)}
+.channel-icon{width:52px;height:52px;margin-bottom:1.2rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center}
+.channel-icon svg{width:24px;height:24px}
+.icon-call{background:rgba(200,147,58,0.1)}.icon-call svg{stroke:var(--gold)}
+.icon-wa{background:rgba(37,211,102,0.1)}.icon-wa svg{fill:#25D366}
+.icon-email{background:rgba(107,124,90,0.1)}.icon-email svg{stroke:var(--sage)}
+.icon-chat{background:rgba(61,43,14,0.08)}.icon-chat svg{stroke:var(--bark)}
+.ch-label{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--bark);margin-bottom:0.6rem}
+.ch-desc{font-size:0.82rem;font-weight:300;line-height:1.7;color:var(--muted);margin-bottom:1.3rem}
+.ch-action{font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:0.35rem}
+.ch-action::after{content:'→';transition:transform 0.2s}
+.channel-card:hover .ch-action::after{transform:translateX(4px)}
+
+/* ─── APPOINTMENT ─── */
+.appt-section{background:var(--bark);position:relative;overflow:hidden}
+.appt-section::before{content:'';position:absolute;top:-180px;right:-180px;
+  width:450px;height:450px;border-radius:50%;background:rgba(200,147,58,0.07)}
+.appt-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;
+  gap:3.5rem;align-items:start;position:relative;z-index:2}
+.appt-left .sec-eyebrow{color:var(--gold-light)}
+.appt-left .sec-title{color:var(--cream)}
+.appt-left .sec-sub{color:rgba(250,246,238,0.6)}
+.appt-left .divider{background:var(--gold)}
+.appt-perks{margin-top:1.8rem;display:flex;flex-direction:column;gap:0.9rem}
+.perk{display:flex;align-items:flex-start;gap:0.9rem}
+.perk-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:0.55rem;flex-shrink:0}
+.perk-text{font-size:0.86rem;font-weight:300;color:rgba(250,246,238,0.72);line-height:1.6}
+.appt-form{background:var(--cream);padding:2.2rem;display:flex;flex-direction:column;gap:0.9rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.form-group{display:flex;flex-direction:column;gap:0.35rem}
+.form-group label{font-size:0.65rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+.form-group input,.form-group select,.form-group textarea{
+  background:#fff;border:1px solid rgba(200,147,58,0.25);padding:0.7rem 0.9rem;
+  font-family:'Jost',sans-serif;font-size:0.88rem;font-weight:300;color:var(--text);
+  outline:none;transition:border-color 0.2s;appearance:none;border-radius:0}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:80px}
+.gender-row{display:flex;gap:0.6rem}
+.gender-btn{flex:1;padding:0.6rem;border:1px solid rgba(200,147,58,0.3);background:#fff;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.78rem;color:var(--muted);transition:all 0.2s;border-radius:0}
+.gender-btn:hover,.gender-btn.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+.form-submit{background:var(--bark);color:#fff;padding:0.95rem;border:none;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.14em;
+  text-transform:uppercase;transition:background 0.25s;margin-top:0.3rem}
+.form-submit:hover{background:var(--gold)}
+
+/* ─── SHOP / PRODUCTS PAGE ─── */
+.shop-hero{background:var(--bark);padding:3rem 5vw 2rem;position:relative;overflow:hidden}
+.shop-hero::before{content:'';position:absolute;right:-100px;top:-100px;
+  width:400px;height:400px;border-radius:50%;background:rgba(200,147,58,0.08)}
+.shop-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:300;color:var(--cream);position:relative;z-index:1}
+.shop-hero h1 em{color:var(--gold-light);font-style:italic}
+.shop-hero p{font-size:0.9rem;font-weight:300;color:rgba(250,246,238,0.65);
+  max-width:520px;margin-top:0.7rem;position:relative;z-index:1}
+.shop-banner{background:var(--gold);padding:0.6rem 5vw;text-align:center;
+  font-size:0.78rem;font-weight:400;color:#fff;letter-spacing:0.08em}
+
+.shop-layout{display:grid;grid-template-columns:220px 1fr;gap:2rem;padding:2.5rem 5vw;align-items:start}
+.shop-sidebar{background:#fff;border:1px solid var(--border);padding:1.5rem;position:sticky;top:80px}
+.sidebar-title{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border)}
+.sidebar-cat{display:flex;flex-direction:column;gap:0.1rem;margin-bottom:1.5rem}
+.cat-btn{background:none;border:none;text-align:left;padding:0.5rem 0.7rem;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.82rem;font-weight:300;color:var(--muted);
+  transition:all 0.18s;border-radius:2px}
+.cat-btn:hover,.cat-btn.cat-active{color:var(--bark);background:var(--cream);font-weight:400}
+
+.products-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem}
+.products-count{font-size:0.82rem;color:var(--muted);font-weight:300}
+.sort-select{border:1px solid var(--border);padding:0.5rem 0.8rem;
+  font-family:'Jost',sans-serif;font-size:0.8rem;color:var(--bark);background:var(--cream);
+  outline:none;cursor:pointer;border-radius:0}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.2rem}
+.product-card{background:#fff;border:1px solid var(--border);overflow:hidden;
+  transition:box-shadow 0.25s,transform 0.2s;cursor:pointer}
+.product-card:hover{box-shadow:0 8px 32px rgba(61,43,14,0.1);transform:translateY(-4px)}
+.product-img{width:100%;aspect-ratio:1;background:var(--cream);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-img-inner{font-size:3.5rem;transition:transform 0.3s}
+.product-card:hover .product-img-inner{transform:scale(1.1)}
+.product-badge{position:absolute;top:10px;left:10px;
+  background:var(--red);color:#fff;font-size:0.65rem;font-weight:500;
+  letter-spacing:0.08em;padding:0.2rem 0.5rem;text-transform:uppercase}
+.product-badge.new{background:var(--green)}
+.product-info{padding:1rem}
+.product-cat{font-size:0.63rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--bark);margin-bottom:0.2rem;line-height:1.3}
+.product-desc{font-size:0.75rem;color:var(--muted);font-weight:300;line-height:1.5;margin-bottom:0.8rem}
+.product-price-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem}
+.product-price{font-size:1.05rem;font-weight:500;color:var(--bark)}
+.product-mrp{font-size:0.78rem;color:var(--muted);text-decoration:line-through}
+.product-saving{font-size:0.68rem;color:var(--green);font-weight:500}
+.add-cart-btn{background:var(--gold);color:#fff;border:none;padding:0.45rem 0.9rem;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;transition:background 0.2s;width:100%;margin-top:0.7rem}
+.add-cart-btn:hover{background:var(--bark)}
+
+/* ─── CART SIDEBAR ─── */
+.cart-overlay{position:fixed;inset:0;background:rgba(26,18,8,0.45);z-index:500;display:none}
+.cart-overlay.open{display:block}
+.cart-sidebar{position:fixed;right:0;top:0;bottom:0;width:360px;max-width:92vw;
+  background:#fff;z-index:501;display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform 0.3s}
+.cart-sidebar.open{transform:translateX(0)}
+.cart-head{background:var(--bark);padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.cart-head h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--cream)}
+.cart-close{background:none;border:none;color:rgba(250,246,238,0.7);font-size:1.2rem;cursor:pointer}
+.cart-items{flex:1;overflow-y:auto;padding:1.2rem}
+.cart-empty{text-align:center;padding:3rem 1rem;color:var(--muted);font-weight:300;font-size:0.9rem}
+.cart-item{display:flex;gap:1rem;padding:0.9rem 0;border-bottom:1px solid var(--border)}
+.cart-item-icon{width:54px;height:54px;background:var(--cream);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+.cart-item-info{flex:1}
+.cart-item-name{font-size:0.85rem;font-weight:500;color:var(--bark);margin-bottom:0.2rem}
+.cart-item-price{font-size:0.82rem;color:var(--gold);font-weight:400}
+.cart-item-qty{display:flex;align-items:center;gap:0.5rem;margin-top:0.4rem}
+.qty-btn{width:24px;height:24px;border:1px solid var(--border);background:none;
+  cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:all 0.18s}
+.qty-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.qty-val{font-size:0.82rem;font-weight:500;min-width:20px;text-align:center}
+.remove-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:0.75rem;margin-left:auto}
+.cart-footer{padding:1.2rem 1.5rem;border-top:1px solid var(--border)}
+.cart-total-row{display:flex;justify-content:space-between;margin-bottom:1rem}
+.cart-total-label{font-size:0.82rem;color:var(--muted);font-weight:300}
+.cart-total-val{font-size:1rem;font-weight:500;color:var(--bark)}
+.checkout-btn{background:var(--bark);color:#fff;border:none;width:100%;padding:0.95rem;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;transition:background 0.2s;margin-bottom:0.5rem}
+.checkout-btn:hover{background:var(--gold)}
+.cart-note{font-size:0.72rem;color:var(--muted);text-align:center;font-weight:300}
+
+/* ─── DONATION ─── */
+.donation-section{background:var(--sage-light);position:relative;overflow:hidden}
+.donation-section::before{content:'🌿';position:absolute;right:5vw;top:50%;
+  transform:translateY(-50%);font-size:8rem;opacity:0.07}
+.donation-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.donation-amounts{display:flex;flex-wrap:wrap;gap:0.8rem;margin:1.5rem 0}
+.amt-btn{padding:0.6rem 1.3rem;border:1px solid var(--sage);background:transparent;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.85rem;color:var(--bark);
+  font-weight:300;transition:all 0.2s}
+.amt-btn:hover,.amt-btn.active{background:var(--sage);color:#fff;border-color:var(--sage)}
+.donation-causes{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:1.5rem}
+.cause-item{display:flex;align-items:flex-start;gap:0.8rem;padding:0.9rem 1rem;
+  background:#fff;border:1px solid rgba(107,124,90,0.2)}
+.cause-dot{width:5px;height:5px;border-radius:50%;background:var(--sage);margin-top:0.5rem;flex-shrink:0}
+.cause-text{font-size:0.84rem;color:var(--text);font-weight:300;line-height:1.6}
+.cause-text strong{font-weight:500;color:var(--bark)}
+.trust-badge{display:flex;align-items:center;gap:0.6rem;margin-top:1rem;
+  padding:0.7rem 1rem;background:#fff;border-left:3px solid var(--sage);font-size:0.8rem;color:var(--muted)}
+.donate-form{background:#fff;padding:2rem;border:1px solid rgba(107,124,90,0.2)}
+.donate-form .sec-eyebrow{color:var(--sage)}
+.donate-form .sec-title{color:var(--bark);font-size:1.6rem;margin-bottom:1rem}
+
+/* ─── POPUP ─── */
+.popup-overlay{position:fixed;inset:0;background:rgba(26,18,8,0.65);
+  z-index:900;display:none;align-items:center;justify-content:center;padding:1rem}
+.popup-overlay.open{display:flex}
+.popup{background:#fff;width:100%;max-width:760px;display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;animation:popIn 0.35s ease}
+@keyframes popIn{from{opacity:0;transform:scale(0.94)}to{opacity:1;transform:scale(1)}}
+.popup-close{position:absolute;top:14px;right:16px;background:none;border:none;
+  font-size:1.3rem;cursor:pointer;color:rgba(250,246,238,0.7);z-index:10;line-height:1}
+.popup-left{background:var(--bark);padding:2.2rem 2rem;position:relative;overflow:hidden}
+.popup-left::before{content:'';position:absolute;bottom:-80px;right:-80px;
+  width:220px;height:220px;border-radius:50%;background:rgba(200,147,58,0.12)}
+.popup-left h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;
+  color:var(--cream);margin-bottom:0.5rem;position:relative;z-index:1}
+.popup-left h2 em{color:var(--gold-light);font-style:italic}
+.popup-left p{font-size:0.83rem;font-weight:300;color:rgba(250,246,238,0.7);
+  margin-bottom:1.4rem;line-height:1.7;position:relative;z-index:1}
+.popup-steps{position:relative;z-index:1}
+.popup-step{display:flex;align-items:flex-start;gap:0.7rem;margin-bottom:0.8rem}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--gold);
+  color:#fff;font-size:0.7rem;font-weight:600;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:0.8rem;color:rgba(250,246,238,0.75);font-weight:300;line-height:1.5}
+.popup-stats{display:flex;gap:1.2rem;margin-top:1.5rem;position:relative;z-index:1}
+.pop-stat{text-align:center;background:rgba(255,255,255,0.06);padding:0.7rem 0.9rem;flex:1}
+.pop-stat-num{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--gold-light)}
+.pop-stat-label{font-size:0.66rem;color:rgba(250,246,238,0.55);font-weight:300}
+.popup-right{padding:2.2rem 2rem}
+.popup-right h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;
+  color:var(--bark);margin-bottom:0.3rem}
+.popup-right p{font-size:0.8rem;color:var(--muted);font-weight:300;margin-bottom:1.2rem}
+.popup-input{width:100%;border:1px solid rgba(200,147,58,0.3);padding:0.75rem 0.9rem;
+  font-family:'Jost',sans-serif;font-size:0.88rem;color:var(--text);outline:none;
+  margin-bottom:0.7rem;border-radius:0;transition:border-color 0.2s}
+.popup-input:focus{border-color:var(--gold)}
+.popup-submit{width:100%;background:var(--gold);color:#fff;border:none;padding:0.9rem;
+  font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-bottom:0.8rem}
+.popup-submit:hover{background:var(--bark)}
+.popup-or{text-align:center;color:var(--muted);font-size:0.78rem;margin-bottom:0.8rem;position:relative}
+.popup-or::before,.popup-or::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--border)}
+.popup-or::before{left:0}.popup-or::after{right:0}
+.popup-call{width:100%;background:var(--green);color:#fff;border:none;padding:0.9rem;
+  font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:0.5rem}
+.popup-call:hover{background:#145e33}
+.popup-tos{font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.8rem;font-weight:300}
+
+/* ─── CHATBOT ─── */
+#chat-bubble{position:fixed;bottom:26px;right:26px;z-index:400}
+.bubble-btn{width:56px;height:56px;border-radius:50%;background:var(--bark);border:none;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(26,18,8,0.22);transition:transform 0.2s,background 0.2s}
+.bubble-btn:hover{transform:scale(1.07);background:var(--gold)}
+.bubble-btn svg{width:22px;height:22px;stroke:#fff}
+.bubble-badge{position:absolute;top:-1px;right:-1px;width:15px;height:15px;
+  border-radius:50%;background:#E53935;border:2px solid var(--cream);
+  font-size:8px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center}
+.chat-window{position:absolute;bottom:68px;right:0;width:310px;background:#fff;
+  border:1px solid var(--border);box-shadow:0 8px 36px rgba(26,18,8,0.16);
+  display:none;flex-direction:column;overflow:hidden}
+.chat-window.open{display:flex}
+.chat-head{background:var(--bark);padding:0.9rem 1.1rem;display:flex;align-items:center;gap:0.7rem}
+.chat-avatar{width:34px;height:34px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;font-weight:600;color:#fff;flex-shrink:0}
+.chat-head-name{font-size:0.85rem;font-weight:500;color:#fff}
+.chat-head-status{font-size:0.7rem;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.3rem}
+.status-dot{width:5px;height:5px;border-radius:50%;background:#4CAF50}
+.chat-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.6);font-size:1rem;margin-left:auto}
+.chat-msgs{padding:0.9rem;display:flex;flex-direction:column;gap:0.65rem;
+  max-height:240px;overflow-y:auto;background:#FAFAF7}
+.msg{max-width:85%;padding:0.6rem 0.85rem;font-size:0.8rem;line-height:1.6;font-weight:300}
+.msg-bot{background:#fff;color:var(--text);border:1px solid var(--border);align-self:flex-start}
+.msg-user{background:var(--bark);color:#fff;align-self:flex-end}
+.chat-opts{padding:0.65rem 0.9rem;display:flex;flex-direction:column;gap:0.4rem}
+.chat-opt{padding:0.55rem 0.85rem;border:1px solid var(--border);background:#fff;
+  cursor:pointer;font-family:'Jost',sans-serif;font-size:0.76rem;color:var(--bark);
+  text-align:left;transition:all 0.18s}
+.chat-opt:hover{background:var(--sage-light);border-color:var(--sage)}
+.chat-inp-row{display:flex;border-top:1px solid var(--border)}
+.chat-inp{flex:1;padding:0.7rem 0.9rem;border:none;outline:none;
+  font-family:'Jost',sans-serif;font-size:0.82rem;background:#fff;color:var(--text)}
+.chat-send{background:var(--gold);border:none;padding:0 0.9rem;cursor:pointer;color:#fff;font-size:0.85rem;transition:background 0.2s}
+.chat-send:hover{background:var(--bark)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--deep);padding:3rem 5vw 1.5rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.5rem;margin-bottom:2.2rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;
+  color:var(--cream);letter-spacing:0.04em;margin-bottom:0.7rem}
+.footer-logo span{color:var(--gold)}
+.footer-desc{font-size:0.8rem;font-weight:300;color:rgba(250,246,238,0.4);line-height:1.8}
+.footer-col h4{font-size:0.63rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.footer-col ul a{font-size:0.8rem;font-weight:300;color:rgba(250,246,238,0.45);
+  text-decoration:none;transition:color 0.2s;cursor:pointer}
+.footer-col ul a:hover{color:var(--gold)}
+.fc-contact{display:flex;align-items:flex-start;gap:0.65rem;margin-bottom:0.7rem}
+.fc-contact svg{width:13px;height:13px;stroke:var(--gold);flex-shrink:0;margin-top:2px}
+.fc-contact span{font-size:0.8rem;font-weight:300;color:rgba(250,246,238,0.45);line-height:1.5}
+.footer-bottom{border-top:1px solid rgba(250,246,238,0.07);padding-top:1.4rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem}
+.footer-bottom p{font-size:0.72rem;color:rgba(250,246,238,0.22)}
+.footer-trust{display:flex;align-items:center;gap:0.5rem;font-size:0.72rem;color:rgba(250,246,238,0.3)}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero-content>*{opacity:0;animation:fadeUp 0.65s ease forwards}
+.hero .eyebrow{animation-delay:0.1s}.hero h1{animation-delay:0.24s}
+.hero p{animation-delay:0.38s}.hero-stats{animation-delay:0.5s}.hero-actions{animation-delay:0.62s}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  .shop-layout{grid-template-columns:1fr}
+  .shop-sidebar{position:static;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center}
+  .sidebar-title{display:none}.sidebar-cat{flex-direction:row;margin-bottom:0}
+  .appt-inner{grid-template-columns:1fr}
+  .popup{grid-template-columns:1fr}.popup-left{display:none}
+  .donation-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:1.8rem}
+  .nav-links{display:none}
+}
+@media(max-width:560px){
+  .footer-top{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .chat-window{width:280px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     POPUP (Jiva-style, shows on load)
+════════════════════════════════════════ -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-left">
+      <h2>Book Your Free<br><em>Consultation</em> Now</h2>
+      <p>Trusted Ayurvedic doctors, personalised solutions for 100+ health concerns.</p>
+      <div class="popup-steps">
+        <div class="popup-step"><div class="step-num">1</div><p class="step-text">Share your details — our team will reach out to you.</p></div>
+        <div class="popup-step"><div class="step-num">2</div><p class="step-text">Our doctor understands your symptoms in detail.</p></div>
+        <div class="popup-step"><div class="step-num">3</div><p class="step-text">Your personalised treatment plan is shared same day.</p></div>
+      </div>
+      <div class="popup-stats">
+        <div class="pop-stat"><div class="pop-stat-num">500+</div><div class="pop-stat-label">Patients Helped</div></div>
+        <div class="pop-stat"><div class="pop-stat-num">1</div><div class="pop-stat-label">Expert Doctor</div></div>
+        <div class="pop-stat"><div class="pop-stat-num">100%</div><div class="pop-stat-label">Natural</div></div>
+      </div>
+    </div>
+    <div class="popup-right">
+      <h3>Get a Free Appointment</h3>
+      <p>Fill in your details and we'll call you back within 2 hours.</p>
+      <input class="popup-input" type="text" placeholder="Full Name">
+      <input class="popup-input" type="tel" placeholder="Contact Number">
+      <button class="popup-submit" onclick="submitPopup()">Book Free Appointment</button>
+      <div class="popup-or">OR</div>
+      <button class="popup-call" onclick="window.location='tel:+919999999999'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12 19.79 19.79 0 01.22 3.48 2 2 0 012.22 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Us Now
+      </button>
+      <p class="popup-tos">By submitting, you agree to our privacy policy. We never share your data.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ CART SIDEBAR ════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Your cart is empty.<br><br>Add some Ayurvedic products to get started.</div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Subtotal</span>
+      <span class="cart-total-val" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    <p class="cart-note">Free shipping on orders above ₹499</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ ANNOUNCEMENT ════════════ -->
+<div class="ann-bar">
+  <strong>Suryaa Wellness</strong> — Authentic Ayurvedic consultations &amp; products. Free consultation available. Call <strong>+91 99999 99999</strong>
+</div>
+
+<!-- ══════════════════════════════════════ NAVBAR ════════════ -->
+<nav>
+  <a class="logo" onclick="showPage('home')">Suryaa <span>Wellness</span></a>
+  <ul class="nav-links">
+    <li><button onclick="showPage('home')" id="nav-home" class="active-nav">Home</button></li>
+    <li><button onclick="showPage('home');scrollToSection('diseases')">Diseases</button></li>
+    <li><button onclick="showPage('home');scrollToSection('consult')">Consultation</button></li>
+    <li><button onclick="showPage('shop')" id="nav-shop">Our Products</button></li>
+    <li><button onclick="showPage('home');scrollToSection('donate')">Donate</button></li>
+    <li><a href="#" onclick="openPopup();" class="nav-cta">Free Consult</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      Cart <span class="cart-count" id="navCartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════ -->
+<div class="page-section active" id="page-home">
+
+  <!-- QUICK BAR -->
+  <div class="quick-bar">
+    <p class="quick-bar-text"><strong>Talk to our Ayurvedic doctor today</strong> — First consultation free</p>
+    <div class="quick-links">
+      <a href="tel:+919999999999" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12 19.79 19.79 0 01.22 3.48 2 2 0 012.22 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Now
+      </a>
+      <a href="mailto:hello@suryaawellness.com" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send Mail
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=919999999999&text=Hello%2C%20I%20want%20a%20consultation" target="_blank" class="quick-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.115 1.528 5.836L0 24l6.336-1.511A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.667-.516-5.187-1.415l-.371-.22-3.764.897.927-3.668-.242-.378A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div><div class="hero-orb1"></div><div class="hero-orb2"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Ancient wisdom. Modern healing.</div>
+      <h1>Heal Naturally<br>with <em>Authentic</em><br>Ayurveda</h1>
+      <p>Personalised online consultations with a qualified Ayurvedic doctor. Discover your prakriti, restore your balance — from the comfort of home.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Patients helped</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural treatments</div></div>
+        <div class="stat"><div class="stat-num">Free</div><div class="stat-label">First consult</div></div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToSection('consult')">Book Free Consultation</button>
+        <button class="btn-outline" onclick="showPage('shop')">Shop Products</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISEASES / CONDITIONS -->
+  <section class="diseases-section" id="diseases">
+    <div class="sec-center">
+      <p class="sec-eyebrow">What we treat</p>
+      <h2 class="sec-title">Ayurvedic Care for 100+ Conditions</h2>
+      <div class="divider"></div>
+      <p class="sec-sub">Our doctor specialises in treating chronic and lifestyle diseases using authentic Ayurvedic protocols.</p>
+    </div>
+    <div class="diseases-grid">
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🩺</div><div class="disease-name">Diabetes</div><div class="disease-sub">Madhumeha</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🦴</div><div class="disease-name">Arthritis</div><div class="disease-sub">Sandhivata</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🌿</div><div class="disease-name">Skin Diseases</div><div class="disease-sub">Twak Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🧠</div><div class="disease-name">Stress & Anxiety</div><div class="disease-sub">Chittodvega</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">⚖️</div><div class="disease-name">Weight Management</div><div class="disease-sub">Sthoulya</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">💆</div><div class="disease-name">Hair & Scalp</div><div class="disease-sub">Khalitya</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🫁</div><div class="disease-name">Respiratory</div><div class="disease-sub">Shwasa Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🫀</div><div class="disease-name">Heart Health</div><div class="disease-sub">Hridaya Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🌸</div><div class="disease-name">Women's Health</div><div class="disease-sub">Stri Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🍽️</div><div class="disease-name">Digestive Issues</div><div class="disease-sub">Grahani Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">👁️</div><div class="disease-name">Eye Care</div><div class="disease-sub">Netra Roga</div></a>
+      <a class="disease-card" onclick="scrollToSection('consult')"><div class="disease-icon">🏃</div><div class="disease-name">Back & Joint Pain</div><div class="disease-sub">Kati Shoola</div></a>
+    </div>
+  </section>
+
+  <!-- CONSULTATION CHANNELS -->
+  <section id="channels" style="background:#fff">
+    <div class="sec-center">
+      <p class="sec-eyebrow">Reach us</p>
+      <h2 class="sec-title">Consult Us, Your Way</h2>
+      <div class="divider"></div>
+      <p class="sec-sub">Choose your preferred way to connect. Every path leads to personalised, authentic Ayurvedic care.</p>
+    </div>
+    <div class="channels-grid">
+      <a href="tel:+919999999999" class="channel-card">
+        <div class="channel-icon icon-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12 19.79 19.79 0 01.22 3.48 2 2 0 012.22 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <p class="ch-label">Direct line</p><h3 class="ch-title">Call Us Now</h3>
+        <p class="ch-desc">Speak directly with our team. Available Mon–Sat, 9am–7pm IST.</p>
+        <span class="ch-action">+91 99999 99999</span>
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=919999999999&text=Hello%2C%20I%20want%20to%20book%20a%20consultation" target="_blank" class="channel-card">
+        <div class="channel-icon icon-wa">
+          <svg viewBox="0 0 24 24" stroke-width="0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.115 1.528 5.836L0 24l6.336-1.511A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.895 0-3.667-.516-5.187-1.415l-.371-.22-3.764.897.927-3.668-.242-.378A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <p class="ch-label">Instant message</p><h3 class="ch-title">WhatsApp Us</h3>
+        <p class="ch-desc">Chat, share symptoms, and book appointments on WhatsApp anytime.</p>
+        <span class="ch-action">Message on WhatsApp</span>
+      </a>
+      <a href="mailto:hello@suryaawellness.com?subject=Consultation Request" class="channel-card">
+        <div class="channel-icon icon-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <p class="ch-label">Write to us</p><h3 class="ch-title">Send an Email</h3>
+        <p class="ch-desc">Describe your concern — our doctor responds within 24 hours.</p>
+        <span class="ch-action">hello@suryaawellness.com</span>
+      </a>
+      <a href="#" class="channel-card" onclick="openChat();return false">
+        <div class="channel-icon icon-chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <p class="ch-label">Instant answers</p><h3 class="ch-title">Live Chat</h3>
+        <p class="ch-desc">Get instant answers, know your prakriti, or book — right here.</p>
+        <span class="ch-action">Start a conversation</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT FORM -->
+  <section class="appt-section" id="consult">
+    <div class="appt-inner">
+      <div class="appt-left">
+        <p class="sec-eyebrow">Request an appointment</p>
+        <h2 class="sec-title">Begin Your<br>Healing Journey</h2>
+        <div class="divider"></div>
+        <p class="sec-sub">Our doctor reviews your details and confirms within 24 hours.</p>
+        <div class="appt-perks">
+          <div class="perk"><div class="perk-dot"></div><p class="perk-text">First consultation completely free</p></div>
+          <div class="perk"><div class="perk-dot"></div><p class="perk-text">Video call via Google Meet or WhatsApp</p></div>
+          <div class="perk"><div class="perk-dot"></div><p class="perk-text">Personalised prakriti analysis & treatment plan</p></div>
+          <div class="perk"><div class="perk-dot"></div><p class="perk-text">Private, confidential one-on-one session</p></div>
+        </div>
+      </div>
+      <div class="appt-form">
+        <div class="form-group">
+          <label>Patient type</label>
+          <div class="gender-row">
+            <button class="gender-btn active" onclick="setGender(this)">Male</button>
+            <button class="gender-btn" onclick="setGender(this)">Female</button>
+            <button class="gender-btn" onclick="setGender(this)">Child</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>First name</label><input type="text" placeholder="Aarav"></div>
+          <div class="form-group"><label>Last name</label><input type="text" placeholder="Sharma"></div>
+        </div>
+        <div class="form-group"><label>Mobile number</label><input type="tel" placeholder="+91 98765 43210"></div>
+        <div class="form-group"><label>Email address</label><input type="email" placeholder="you@email.com"></div>
+        <div class="form-group">
+          <label>Primary concern</label>
+          <select>
+            <option value="">Select a concern</option>
+            <option>Digestive issues</option><option>Skin problems</option>
+            <option>Joint & back pain</option><option>Stress & anxiety</option>
+            <option>Weight management</option><option>Hair & scalp issues</option>
+            <option>Women's health</option><option>Diabetes</option>
+            <option>Heart health</option><option>General wellness</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Brief description (optional)</label><textarea placeholder="Tell us about your health concern…"></textarea></div>
+        <button class="form-submit" onclick="handleFormSubmit()">Request Appointment →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION -->
+  <section class="donation-section" id="donate">
+    <div class="donation-inner">
+      <div>
+        <p class="sec-eyebrow" style="color:var(--sage)">We are a wellness trust</p>
+        <h2 class="sec-title">Support Our Mission</h2>
+        <div class="divider" style="background:var(--sage)"></div>
+        <p class="sec-sub">Suryaa Wellness is a registered charitable trust. Beyond consultations, we work to make authentic Ayurveda accessible to underprivileged communities.</p>
+        <div class="donation-causes">
+          <div class="cause-item"><div class="cause-dot"></div><p class="cause-text"><strong>Free clinics</strong> for rural &amp; low-income patients who cannot afford consultations.</p></div>
+          <div class="cause-item"><div class="cause-dot"></div><p class="cause-text"><strong>Herbal gardens</strong> — growing and preserving rare Ayurvedic herbs for future generations.</p></div>
+          <div class="cause-item"><div class="cause-dot"></div><p class="cause-text"><strong>Awareness camps</strong> — educating communities about preventive Ayurvedic lifestyle.</p></div>
+          <div class="cause-item"><div class="cause-dot"></div><p class="cause-text"><strong>Student scholarships</strong> for Ayurvedic practitioners from underprivileged backgrounds.</p></div>
+        </div>
+        <div class="trust-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Registered Charitable Trust · 80G Tax Exemption Available
+        </div>
+      </div>
+      <div class="donate-form">
+        <p class="sec-eyebrow" style="color:var(--sage)">Make a difference</p>
+        <h3 class="sec-title" style="font-size:1.5rem">Donate to<br>Suryaa Wellness</h3>
+        <div class="donation-amounts">
+          <button class="amt-btn" onclick="setAmt(this,'100')">₹100</button>
+          <button class="amt-btn active" onclick="setAmt(this,'500')">₹500</button>
+          <button class="amt-btn" onclick="setAmt(this,'1000')">₹1,000</button>
+          <button class="amt-btn" onclick="setAmt(this,'5000')">₹5,000</button>
+        </div>
+        <div class="form-group" style="margin-bottom:0.8rem">
+          <label>Or enter custom amount</label>
+          <input type="number" id="donateAmt" placeholder="₹ Enter amount" value="500" style="border:1px solid rgba(107,124,90,0.3)">
+        </div>
+        <div class="form-group" style="margin-bottom:0.8rem">
+          <label>Your name</label>
+          <input type="text" placeholder="Full name" style="border:1px solid rgba(107,124,90,0.3)">
+        </div>
+        <div class="form-group" style="margin-bottom:1rem">
+          <label>Mobile / Email</label>
+          <input type="text" placeholder="+91 or email for receipt" style="border:1px solid rgba(107,124,90,0.3)">
+        </div>
+        <button class="btn-green" style="width:100%;padding:1rem;font-size:0.8rem;letter-spacing:0.12em" onclick="handleDonate()">
+          Donate Now via UPI / Card
+        </button>
+        <p style="font-size:0.7rem;color:var(--muted);margin-top:0.6rem;font-weight:300">
+          Secure payment · 80G certificate issued · Your data is private
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end home page -->
+
+<!-- ══════════════════════════════════════
+     SHOP PAGE
+════════════════════════════════════════ -->
+<div class="page-section" id="page-shop">
+
+  <div class="shop-banner">🌿 Free shipping on orders above ₹499 &nbsp;|&nbsp; Authentic Ayurvedic formulations &nbsp;|&nbsp; COD available</div>
+
+  <div class="shop-hero">
+    <h1>Ayurvedic <em>Products</em></h1>
+    <p>Authentic formulations curated by our Ayurvedic doctor. Natural, chemical-free, and time-tested.</p>
+  </div>
+
+  <div class="shop-layout">
+    <!-- SIDEBAR -->
+    <div class="shop-sidebar">
+      <div class="sidebar-title">Categories</div>
+      <div class="sidebar-cat">
+        <button class="cat-btn cat-active" onclick="filterCat('all',this)">All Products</button>
+        <button class="cat-btn" onclick="filterCat('immunity',this)">Immunity Booster</button>
+        <button class="cat-btn" onclick="filterCat('wellness',this)">Health & Wellness</button>
+        <button class="cat-btn" onclick="filterCat('personal',this)">Personal Care</button>
+        <button class="cat-btn" onclick="filterCat('digestive',this)">Digestive Care</button>
+        <button class="cat-btn" onclick="filterCat('skin',this)">Skin & Hair</button>
+        <button class="cat-btn" onclick="filterCat('women',this)">Women's Health</button>
+        <button class="cat-btn" onclick="filterCat('combo',this)">Combo Packs</button>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div>
+      <div class="products-header">
+        <p class="products-count" id="prodCount">Showing all products</p>
+        <select class="sort-select" onchange="sortProducts(this.value)">
+          <option value="default">Sort by: Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </div>
+
+</div><!-- end shop page -->
+
+<!-- ═══ FOOTER (shared) ═══ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Suryaa <span>Wellness</span></div>
+      <p class="footer-desc">Authentic Ayurvedic consultations and trusted herbal products. A registered charitable trust dedicated to making natural healing accessible to all.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a onclick="scrollToSection('consult')">Doctor Consultation</a></li>
+        <li><a onclick="scrollToSection('consult')">Prakriti Analysis</a></li>
+        <li><a onclick="scrollToSection('diseases')">Diseases We Treat</a></li>
+        <li><a onclick="showPage('shop')">Ayurvedic Products</a></li>
+        <li><a onclick="scrollToSection('donate')">Donate / Trust</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Doctor</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="fc-contact"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12 19.79 19.79 0 01.22 3.48 2 2 0 012.22 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>+91 99999 99999</span></div>
+      <div class="fc-contact"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@suryaawellness.com</span></div>
+      <div class="fc-contact"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sat, 9:00am–7:00pm</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Suryaa Wellness Charitable Trust. All rights reserved.</p>
+    <div class="footer-trust">🌿 Registered Charitable Trust · 80G Exemption</div>
+  </div>
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<div id="chat-bubble">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-head">
+      <div class="chat-avatar">S</div>
+      <div>
+        <p class="chat-head-name">Suryaa Wellness</p>
+        <p class="chat-head-status"><span class="status-dot"></span> Online now</p>
+      </div>
+      <button class="chat-x" onclick="closeChat()">✕</button>
+    </div>
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="msg msg-bot">Namaste 🙏 Welcome to Suryaa Wellness! How can I help you today?</div>
+    </div>
+    <div class="chat-opts" id="chatOpts">
+      <button class="chat-opt" onclick="chatReply('Book a consultation')">📅 Book a consultation</button>
+      <button class="chat-opt" onclick="chatReply('Know my prakriti')">🌿 Know my body type (prakriti)</button>
+      <button class="chat-opt" onclick="chatReply('Shop products')">🛍️ Browse Ayurvedic products</button>
+      <button class="chat-opt" onclick="chatReply('WhatsApp')">💬 Connect on WhatsApp</button>
+      <button class="chat-opt" onclick="chatReply('Donate')">🤝 About our trust & donations</button>
+    </div>
+    <div class="chat-inp-row">
+      <input class="chat-inp" id="chatInp" placeholder="Type your message…" onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">→</button>
+    </div>
+  </div>
+  <button class="bubble-btn" onclick="openChat()">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </button>
+  <div class="bubble-badge">1</div>
+</div>
+
+<script>
+// ─── PRODUCT DATA ───
+const PRODUCTS = [
+  {id:1,name:'Ashwagandha Plus',cat:'immunity',emoji:'🌿',price:349,mrp:450,desc:'Stress relief & immunity boost',badge:'sale'},
+  {id:2,name:'Triphala Churna',cat:'digestive',emoji:'🍃',price:199,mrp:250,desc:'Classic digestive & detox formula',badge:''},
+  {id:3,name:'Brahmi Hair Oil',cat:'skin',emoji:'💆',price:279,mrp:350,desc:'Scalp nourishment & hair growth',badge:'new'},
+  {id:4,name:'Neem Face Pack',cat:'skin',emoji:'🌱',price:149,mrp:199,desc:'Deep cleanse & acne-clear pack',badge:''},
+  {id:5,name:'Shatavari Capsules',cat:'women',emoji:'🌸',price:399,mrp:499,desc:'Hormonal balance for women',badge:'new'},
+  {id:6,name:'Immunity Kadha',cat:'immunity',emoji:'☕',price:229,mrp:290,desc:'Classic Ayurvedic immunity brew',badge:''},
+  {id:7,name:'Liver Detox Syrup',cat:'wellness',emoji:'🫙',price:319,mrp:399,desc:'Liver cleanse & digestion support',badge:'sale'},
+  {id:8,name:'Arjuna Heart Care',cat:'wellness',emoji:'🫀',price:449,mrp:550,desc:'Cardiac tonic & BP support',badge:''},
+  {id:9,name:'Kumkumadi Face Oil',cat:'skin',emoji:'✨',price:499,mrp:649,desc:'Brightening & anti-ageing oil',badge:'new'},
+  {id:10,name:'Herbal Immunity Kit',cat:'combo',emoji:'🎁',price:799,mrp:1100,desc:'Ashwagandha + Tulsi + Kadha combo',badge:'sale'},
+  {id:11,name:'Tulsi Drops',cat:'immunity',emoji:'🌿',price:179,mrp:220,desc:'Daily immunity & respiratory care',badge:''},
+  {id:12,name:'Women Wellness Kit',cat:'combo',emoji:'🌷',price:899,mrp:1249,desc:'Shatavari + Lodhra + Aloe vera',badge:'new'},
+  {id:13,name:'Kansa Wand',cat:'personal',emoji:'🔮',price:599,mrp:799,desc:'Facial massage for glow & detox',badge:''},
+  {id:14,name:'Chyawanprash Plus',cat:'immunity',emoji:'🍯',price:399,mrp:499,desc:'Classic rasayana for all ages',badge:''},
+  {id:15,name:'Nasya Oil',cat:'personal',emoji:'💧',price:249,mrp:320,desc:'Sinus & mental clarity oil',badge:''},
+  {id:16,name:'Digestion Combo',cat:'combo',emoji:'🎁',price:549,mrp:749,desc:'Triphala + Hingwashtak + Ajwain',badge:'sale'},
+];
+
+let cart = [];
+let currentCat = 'all';
+
+// ─── RENDER PRODUCTS ───
+function renderProducts(prods){
+  const grid = document.getElementById('productsGrid');
+  document.getElementById('prodCount').textContent = `Showing ${prods.length} product${prods.length!==1?'s':''}`;
+  grid.innerHTML = prods.map(p=>{
+    const saving = Math.round((1-p.price/p.mrp)*100);
+    return `
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-inner">${p.emoji}</div>
+        ${p.badge?`<div class="product-badge ${p.badge}">${p.badge==='new'?'New':'Sale'}</div>`:''}
+      </div>
+      <div class="product-info">
+        <p class="product-cat">${catLabel(p.cat)}</p>
+        <p class="product-name">${p.name}</p>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-price-row">
+          <span class="product-price">₹${p.price}</span>
+          <span class="product-mrp">₹${p.mrp}</span>
+          <span class="product-saving">${saving}% off</span>
+        </div>
+        <button class="add-cart-btn" onclick="addToCart(${p.id})">Add to Cart</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function catLabel(c){
+  return{immunity:'Immunity',digestive:'Digestive Care',skin:'Skin & Hair',
+    women:"Women's Health",wellness:'Health & Wellness',personal:'Personal Care',combo:'Combo Pack'}[c]||c;
+}
+
+function filterCat(cat,btn){
+  currentCat=cat;
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('cat-active'));
+  btn.classList.add('cat-active');
+  const prods=cat==='all'?PRODUCTS:PRODUCTS.filter(p=>p.cat===cat);
+  renderProducts(prods);
+}
+function sortProducts(val){
+  let prods=currentCat==='all'?[...PRODUCTS]:PRODUCTS.filter(p=>p.cat===currentCat);
+  if(val==='low')prods.sort((a,b)=>a.price-b.price);
+  if(val==='high')prods.sort((a,b)=>b.price-a.price);
+  renderProducts(prods);
+}
+
+// ─── CART ───
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  const existing=cart.find(x=>x.id===id);
+  if(existing)existing.qty++;
+  else cart.push({...p,qty:1});
+  updateCartUI();
+  openCart();
+}
+function removeFromCart(id){cart=cart.filter(x=>x.id!==id);updateCartUI()}
+function changeQty(id,d){
+  const item=cart.find(x=>x.id===id);
+  if(item){item.qty+=d;if(item.qty<=0)removeFromCart(id)}
+  updateCartUI();
+}
+function updateCartUI(){
+  const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const count=cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById('navCartCount').textContent=count;
+  const itemsEl=document.getElementById('cartItems');
+  const footerEl=document.getElementById('cartFooter');
+  if(cart.length===0){
+    itemsEl.innerHTML='<div class="cart-empty">Your cart is empty.<br><br>Add some Ayurvedic products!</div>';
+    footerEl.style.display='none';
+  }else{
+    itemsEl.innerHTML=cart.map(x=>`
+    <div class="cart-item">
+      <div class="cart-item-icon">${x.emoji}</div>
+      <div class="cart-item-info">
+        <p class="cart-item-name">${x.name}</p>
+        <p class="cart-item-price">₹${x.price} × ${x.qty} = ₹${x.price*x.qty}</p>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="changeQty(${x.id},-1)">−</button>
+          <span class="qty-val">${x.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${x.id},1)">+</button>
+          <button class="remove-btn" onclick="removeFromCart(${x.id})">✕ Remove</button>
+        </div>
+      </div>
+    </div>`).join('');
+    document.getElementById('cartTotal').textContent='₹'+total;
+    footerEl.style.display='block';
+  }
+}
+function openCart(){document.getElementById('cartSidebar').classList.add('open');document.getElementById('cartOverlay').classList.add('open')}
+function closeCart(){document.getElementById('cartSidebar').classList.remove('open');document.getElementById('cartOverlay').classList.remove('open')}
+function checkout(){alert('Checkout coming soon! For now, please WhatsApp us your order at +91 99999 99999 or call us. 🙏')}
+
+// ─── PAGE NAVIGATION ───
+function showPage(name){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active-nav'));
+  const navBtn=document.getElementById('nav-'+name);
+  if(navBtn)navBtn.classList.add('active-nav');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='shop')renderProducts(PRODUCTS);
+}
+function scrollToSection(id){
+  showPage('home');
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+// ─── POPUP ───
+function openPopup(){document.getElementById('popupOverlay').classList.add('open')}
+function closePopup(){document.getElementById('popupOverlay').classList.remove('open')}
+function submitPopup(){alert('Thank you! Our care coordinator will call you within 2 hours. 🙏');closePopup()}
+setTimeout(openPopup,2200);
+
+// ─── FORM ───
+function setGender(el){document.querySelectorAll('.gender-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+function handleFormSubmit(){alert('Thank you! Your appointment request has been received. We will confirm within 24 hours via WhatsApp or email. 🙏')}
+
+// ─── DONATION ───
+function setAmt(btn,val){
+  document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('donateAmt').value=val;
+}
+function handleDonate(){
+  const amt=document.getElementById('donateAmt').value;
+  if(!amt||amt<1){alert('Please enter a valid donation amount.');return}
+  alert(`Thank you for your generous donation of ₹${amt}! 🙏\n\nPlease send payment to our UPI:\nsuryaawellness@upi\n\nReference: DONATION-${Date.now().toString().slice(-6)}\n\nAn 80G tax certificate will be emailed to you.`);
+}
+
+// ─── CHATBOT ───
+const chatBotResponses={
+  'Book a consultation':"Great! Fill the form on this page or:<br>📞 Call: +91 99999 99999<br>💬 <a href='https://api.whatsapp.com/send?phone=919999999999' target='_blank' style='color:var(--gold)'>WhatsApp us</a>",
+  'Know my prakriti':"Your prakriti (Vata, Pitta, Kapha) is your unique Ayurvedic constitution. A 15-min free consultation with our doctor gives you a personalised analysis. Want to book one?",
+  'Shop products':"Explore our authentic product range! <button onclick='showPage(\"shop\");closeChat()' style='background:var(--gold);color:#fff;border:none;padding:4px 10px;cursor:pointer;font-size:0.75rem'>Browse Products →</button>",
+  'WhatsApp':"Connecting you to WhatsApp — we respond within minutes during clinic hours (9am–7pm). <a href='https://api.whatsapp.com/send?phone=919999999999&text=Hello, I need help from Suryaa Wellness' target='_blank' style='color:var(--gold)'>👉 Open WhatsApp</a>",
+  'Donate':"Suryaa Wellness is a registered charitable trust. We use donations to provide free clinics, herbal gardens & awareness camps. <button onclick='scrollToSection(\"donate\");closeChat()' style='background:var(--sage);color:#fff;border:none;padding:4px 10px;cursor:pointer;font-size:0.75rem'>Donate Now →</button>"
+};
+function openChat(){document.getElementById('chatWindow').classList.add('open');document.querySelector('.bubble-badge').style.display='none'}
+function closeChat(){document.getElementById('chatWindow').classList.remove('open')}
+function chatReply(opt){
+  const msgs=document.getElementById('chatMsgs');
+  const opts=document.getElementById('chatOpts');
+  msgs.innerHTML+=`<div class="msg msg-user">${opt}</div>`;
+  const resp=chatBotResponses[opt]||"Our team will get back to you shortly!";
+  setTimeout(()=>{msgs.innerHTML+=`<div class="msg msg-bot">${resp}</div>`;msgs.scrollTop=msgs.scrollHeight;},600);
+  opts.style.display='none';
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function sendChat(){
+  const inp=document.getElementById('chatInp');
+  const text=inp.value.trim();if(!text)return;
+  const msgs=document.getElementById('chatMsgs');
+  msgs.innerHTML+=`<div class="msg msg-user">${text}</div>`;
+  inp.value='';
+  setTimeout(()=>{
+    msgs.innerHTML+=`<div class="msg msg-bot">Thank you for reaching out! For immediate help, please <a href='https://api.whatsapp.com/send?phone=919999999999' target='_blank' style='color:var(--gold)'>WhatsApp us</a> or call +91 99999 99999. 🙏</div>`;
+    msgs.scrollTop=msgs.scrollHeight;
+  },700);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+// ─── INIT ───
+renderProducts(PRODUCTS);
+</script>
+</body>
+</html>
